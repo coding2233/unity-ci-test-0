@@ -6,5 +6,5 @@ pipeline:
         - dpkg -i packages-microsoft-prod.deb
         - apt update && apt install -y dotnet-runtime-6.0
         - xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' dotnet .ci/unihacker/UniHacker.dll path=/usr/bin/unity-editor
-        - xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' unity-editor --username="coding2233@163.com" --password="Coding2580" -projectPath $(pwd) -logFile /dev/stdout -batchmode -nographics -buildLinux64Player ./
+        - xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' unity-editor -username="coding2233@163.com" -password="Coding2580" -projectPath $(pwd) -logFile /dev/stdout -batchmode -nographics -buildLinux64Player ./
         - ls -alh
