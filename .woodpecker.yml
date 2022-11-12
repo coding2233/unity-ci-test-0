@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: unityci/editor:ubuntu-2021.3.1f1-android-1.0.1
+    image: registry.cn-hangzhou.aliyuncs.com/wanderer/unityci-editor:ubuntu-2021.3.1f1-linux-il2cpp-1.0.1
     commands:
         - wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
         - dpkg -i packages-microsoft-prod.deb
