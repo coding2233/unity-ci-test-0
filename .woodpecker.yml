@@ -1,14 +1,15 @@
 pipeline:
   build:
-    image: registry.cn-hangzhou.aliyuncs.com/wanderer/unityci-editor:ubuntu-2021.3.1f1-linux-il2cpp-1.0.1
+    image: unityci/editor:ubuntu-2021.3.1f1-linux-il2cpp-1.0.1
     commands:
         - wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
         - dpkg -i packages-microsoft-prod.deb
         - apt update && apt install -y dotnet-runtime-6.0
+        - ls -alh .ci/unihacker
         - export UNITY_PATH=/usr/bin/unity-editor
         - export EXEC_METHOD=PATCH
-        - dotnet .ci/unihacker/unihacker.dll
+        - dotnet .ci/unihacker/Unihacker.dll
         - export EXEC_METHOD=CHECK
-        - dotnet .ci/unihacker/unihacker.dll
+        - dotnet .ci/unihacker/Unihacker.dll
         - xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' unity-editor -username="coding2233@163.com" -password="Coding2580" -projectPath $(pwd) -logFile /dev/stdout -batchmode -nographics -buildLinux64Player ./
         - ls -alh
