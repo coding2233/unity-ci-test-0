@@ -40,7 +40,7 @@ jobs:
             ls -alh .ci/unihacker
             export UNITY_PATH=/opt/unity
             export EXEC_METHOD=PATCH
-            dotnet .ci/unihacker/Unihacker.dll
+            dotnet .ci/unihacker/UniHacker.dll
             mkdir build
             xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' unity-editor -quit -projectPath $(pwd) -logFile /dev/stdout -batchmode -nographics -buildLinux64Player ./build/a
             - ls -alh
