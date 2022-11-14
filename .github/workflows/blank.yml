@@ -30,7 +30,9 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: unityci/editor:ubuntu-2021.3.1f1-linux-il2cpp-1.0.1
+          options: -v ${{ github.workspace }}:/work
           run: |
+            cd /work
             ls -alh
             wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
             dpkg -i packages-microsoft-prod.deb
